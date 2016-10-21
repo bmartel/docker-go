@@ -46,4 +46,5 @@ go build -tags $APP_ENV -o webapp
 
 cd /src
 rm -rf vendor
+chown -R nobody:nobody /src
 chmod -R 700 /src
