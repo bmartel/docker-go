@@ -6,7 +6,9 @@ RUN apk update && apk upgrade && \
 RUN mkdir -p /go/src/app
 WORKDIR /go/src/app
 
-COPY build.sh /usr/local/bin/build
+RUN go get github.com/codegangsta/gin && go get github.com/Masterminds/glide
 
-RUN chmod +x /usr/local/bin/build \
-  && go get github.com/Masterminds/glide
+ENV PORT 8080
+EXPOSE 3000
+
+CMD gin run
